@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will you go out with me?</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <h1>to5roj m3aya :)?</h1>
+      <div class="buttons">
+        <button class="yes-btn" onclick="window.location.href='/yes'">
+          Ey
+        </button>
+        <button class="no-btn" id="no-btn">Le</button>
+      </div>
+    </div>
+
+    <script>
+      // Add an event listener to the "No" button to trigger the escape animation
+      document
+        .getElementById("no-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default redirect action
+
+          // Add the escape class to trigger the animation
+          this.classList.add("escape");
+
+          // Wait for the animation to complete before redirecting
+          setTimeout(function () {
+            window.location.href = "/no"; // Redirect to the No page after the animation finishes
+          }, 1000); // Animation duration: 1 second
+        });
+    </script>
+  </body>
+</html>
